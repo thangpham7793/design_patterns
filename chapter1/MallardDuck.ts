@@ -2,19 +2,20 @@ import BaseDuck from "./BaseDuck"
 import FlyHigh from "./FlyHigh"
 import FlyOnRocket from "./FlyOnRocket"
 
-export default class MallardDuck extends BaseDuck {}
+export default class MallardDuck extends BaseDuck {} //code reuse!
 
 const mallardDuck = new MallardDuck(new FlyHigh())
 
-mallardDuck.performFly()
-
-let count = 0
-function record() {
-  console.log(`Have been flying for ${++count} seconds`)
-}
+mallardDuck.performFly() //command pattern (delegate implementation details to just a class)
 
 const startFlying = setInterval(() => {
-  record()
+  function makeRecorder() {
+    let count = 0
+    return function record() {
+      console.log(`Have been flying for ${++count} seconds`)
+    }
+  }
+  makeRecorder()()
 }, 1000)
 
 setTimeout(() => {

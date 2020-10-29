@@ -8,14 +8,11 @@ const mallardDuck = new MallardDuck(new FlyHigh())
 
 mallardDuck.performFly() //command pattern (delegate implementation details to just a class)
 
+let count = 0
 const startFlying = setInterval(() => {
-  function makeRecorder() {
-    let count = 0
-    return function record() {
-      console.log(`Have been flying for ${++count} seconds`)
-    }
-  }
-  makeRecorder()()
+  ;(function () {
+    console.log(`Have been flying for ${++count} seconds`)
+  })()
 }, 1000)
 
 setTimeout(() => {

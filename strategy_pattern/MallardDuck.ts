@@ -4,7 +4,7 @@ import FlyOnRocket from "./FlyOnRocket"
 
 export default class MallardDuck extends BaseDuck {} //code reuse!
 
-const mallardDuck = new MallardDuck(new FlyHigh())
+const mallardDuck = new MallardDuck(new FlyHigh()) //dependency injection?
 
 mallardDuck.performFly() //command pattern (delegate implementation details to just a class)
 

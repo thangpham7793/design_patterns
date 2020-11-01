@@ -11,9 +11,11 @@ export default class WeatherData implements Subject {
   registerObserver(o: Observer): void {
     this.observerMap.set(o, o)
   }
+
   removeObserver(o: Observer): void {
     this.observerMap.delete(o)
   }
+
   notifyObserver(): void {
     //send the newest data to each observer
     ;[...this.observerMap.values()].forEach((v: Observer) =>

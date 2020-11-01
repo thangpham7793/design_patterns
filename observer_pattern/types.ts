@@ -16,6 +16,6 @@ export interface Observer {
   update(data: WeatherMeasurements): void
 }
 
-export interface DisplayElementt {
+export interface DisplayElement {
   display(): void
 }
